@@ -43,6 +43,12 @@ class Gallery
      */
     protected $images;
 
+    /**
+     *  @ORM\Column(name="images_text", type="text", nullable=true)
+     *
+     */
+    private $images_shortcut;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -102,5 +108,61 @@ class Gallery
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set images_shortcut
+     *
+     * @param string $imagesShortcut
+     * @return Gallery
+     */
+    public function setImagesShortcut($imagesShortcut)
+    {
+        $this->images_shortcut = $imagesShortcut;
+    
+        return $this;
+    }
+
+    /**
+     * Get images_shortcut
+     *
+     * @return string 
+     */
+    public function getImagesShortcut()
+    {
+        return $this->images_shortcut;
+    }
+
+    /**
+     * Add images
+     *
+     * @param \Videl\VidelGalleryBundle\Entity\Image $images
+     * @return Gallery
+     */
+    public function addImage(\Videl\VidelGalleryBundle\Entity\Image $images)
+    {
+        $this->images[] = $images;
+    
+        return $this;
+    }
+
+    /**
+     * Remove images
+     *
+     * @param \Videl\VidelGalleryBundle\Entity\Image $images
+     */
+    public function removeImage(\Videl\VidelGalleryBundle\Entity\Image $images)
+    {
+        $this->images->removeElement($images);
+    }
+
+    /**
+     * Get images
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getImages()
+    {
+        return $this->images;
     }
 }
