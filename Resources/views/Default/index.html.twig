@@ -7,7 +7,7 @@
 <h1>Liste des images</h1>
 	{% for image in images %}
 		<h2>{{ image.name }}</h2>
-		<img src="{{ image.getWebPath }}" alt="{{ image.name }}" />
+		<img src="http://localhost/www/symfony/web/{{ image.getWebPath }}" alt="{{ image.name }}" />
 	{% endfor %}
 
 </body>
