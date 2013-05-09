@@ -1,1 +1,14 @@
-Hello {{ name }}!
+<html>
+<head>
+	<title>VidelGalleryBundle</title>
+</head>
+<body>
+
+<h1>Liste des images</h1>
+	{% for image in images %}
+		<h2>{{ image.name }}</h2>
+		<img src="{{ image.getWebPath }}" alt="{{ image.name }}" />
+	{% endfor %}
+
+</body>
+</html>

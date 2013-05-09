@@ -1,0 +1,5 @@
+Videl\VidelGalleryBundle\Entity\Image:
+    properties:
+        file:
+                - File:
+                maxSize: 6000000
