@@ -1,0 +1,4 @@
+VidelGalleryBundle
+==================
+
+VidelGalleryBundle for Symfony
