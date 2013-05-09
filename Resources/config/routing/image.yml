@@ -1,0 +1,30 @@
+image_crud:
+    pattern:  /
+    defaults: { _controller: "VidelGalleryBundle:Image:index" }
+
+image_crud_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "VidelGalleryBundle:Image:show" }
+
+image_crud_new:
+    pattern:  /new
+    defaults: { _controller: "VidelGalleryBundle:Image:new" }
+
+image_crud_create:
+    pattern:  /create
+    defaults: { _controller: "VidelGalleryBundle:Image:create" }
+    requirements: { _method: post }
+
+image_crud_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "VidelGalleryBundle:Image:edit" }
+
+image_crud_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "VidelGalleryBundle:Image:update" }
+    requirements: { _method: post }
+
+image_crud_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "VidelGalleryBundle:Image:delete" }
+    requirements: { _method: post }

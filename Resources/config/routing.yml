@@ -1,3 +1,8 @@
 videl_gallery_homepage:
     pattern:  /
     defaults: { _controller: VidelGalleryBundle:Default:index }
+
+
+VidelGalleryBundle_image_crud:
+    resource: "@VidelGalleryBundle/Resources/config/routing/image.yml"
+    prefix:	/image_crud
