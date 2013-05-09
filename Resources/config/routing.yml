@@ -2,6 +2,9 @@ videl_gallery_homepage:
     pattern:  /
     defaults: { _controller: VidelGalleryBundle:Default:index }
 
+videl_gallery_image_search:
+    pattern: /search/image/{var}
+    defaults: { _controller:VidelGalleryBundle:Default:searchImage }
 
 VidelGalleryBundle_image_crud:
     resource: "@VidelGalleryBundle/Resources/config/routing/image.yml"

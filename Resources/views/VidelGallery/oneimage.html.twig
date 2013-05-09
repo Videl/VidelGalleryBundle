@@ -1,0 +1,6 @@
+{% extends 'VidelGalleryBundle::base.html.twig' %}
+
+{% block body %}
+<h1>{{ image.name }}, {{ image.id }}</h1>
+	<img src="http://localhost/www/symfony/web/{{ image.getWebPath }}" alt="{{ image.name }}" />
+{% endblock %}

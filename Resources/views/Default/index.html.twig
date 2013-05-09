@@ -1,14 +1,13 @@
-<html>
-<head>
-	<title>VidelGalleryBundle</title>
-</head>
-<body>
+{% extends 'VidelGalleryBundle::base.html.twig' %}
 
+{% block body %}
 <h1>Liste des images</h1>
+
+	<div class="image-chooser">
 	{% for image in images %}
 		<h2>{{ image.name }}</h2>
 		<img src="http://localhost/www/symfony/web/{{ image.getWebPath }}" alt="{{ image.name }}" />
 	{% endfor %}
 
-</body>
-</html>
+	</div>
+{% endblock %}
