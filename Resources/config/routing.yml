@@ -6,6 +6,10 @@ videl_gallery_image_search:
     pattern: /search/image/{var}
     defaults: { _controller:VidelGalleryBundle:Default:searchImage }
 
+videl_gallery_gallery_search:
+    pattern: /search/gallery/{var}
+    defaults: { _controller:VidelGalleryBundle:Default:searchGallery }
+
 VidelGalleryBundle_image_crud:
     resource: "@VidelGalleryBundle/Resources/config/routing/image.yml"
     prefix:	/image_crud

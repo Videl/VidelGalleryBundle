@@ -30,6 +30,42 @@ class GalleryController extends Controller
     }
 
     /**
+     * Finds and displays a Gallery entity.
+     *
+     */
+    public function showAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('VidelGalleryBundle:Gallery')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Gallery entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+
+        return $this->render('VidelGalleryBundle:Gallery:show.html.twig', array(
+            'entity'      => $entity,
+            'delete_form' => $deleteForm->createView(),        ));
+    }
+
+    /**
+     * Displays a form to create a new Gallery entity.
+     *
+     */
+    public function newAction()
+    {
+        $entity = new Gallery();
+        $form   = $this->createForm(new GalleryType(), $entity);
+
+        return $this->render('VidelGalleryBundle:Gallery:new.html.twig', array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+        ));
+    }
+
+    /**
      * Creates a new Gallery entity.
      *
      */
@@ -51,42 +87,6 @@ class GalleryController extends Controller
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
-    }
-
-    /**
-     * Displays a form to create a new Gallery entity.
-     *
-     */
-    public function newAction()
-    {
-        $entity = new Gallery();
-        $form   = $this->createForm(new GalleryType(), $entity);
-
-        return $this->render('VidelGalleryBundle:Gallery:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
-    }
-
-    /**
-     * Finds and displays a Gallery entity.
-     *
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('VidelGalleryBundle:Gallery')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Gallery entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('VidelGalleryBundle:Gallery:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
     }
 
     /**
@@ -169,13 +169,6 @@ class GalleryController extends Controller
         return $this->redirect($this->generateUrl('gallery_crud'));
     }
 
-    /**
-     * Creates a form to delete a Gallery entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return Symfony\Component\Form\Form The form
-     */
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder(array('id' => $id))
