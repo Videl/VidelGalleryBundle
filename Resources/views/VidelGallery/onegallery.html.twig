@@ -1,0 +1,24 @@
+{% extends 'VidelGalleryBundle::base.html.twig' %}
+
+{% block body %}
+<h1>Gallery name : {{ gallery.title }}, {{ gallery.id }}</h1>
+
+<div id="container">
+{% for image in gallery.images %}
+
+{% include 'VidelGalleryBundle:VidelGallery:oneimage.html.twig' %}
+
+{% endfor %}
+</div>
+{% endblock %}
+
+
+{% block myjs %}
+<script>
+$('#container').masonry({
+  itemSelector: '.box',
+  columnWidth: 100,
+  isAnimated: true
+});
+</script>
+{% endblock %}
