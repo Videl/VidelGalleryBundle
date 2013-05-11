@@ -35,4 +35,26 @@ class DefaultController extends Controller
         	'image' => $entity
         	));
     }
+
+    public function searchGalleryAction($var)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = null;
+        if(is_numeric($var))
+        {
+            $entity = $em->getRepository('VidelGalleryBundle:Gallery')->findOneById($var);
+        } else
+            $entity = $em->getRepository('VidelGalleryBundle:Gallery')->findOneByTitle($var);
+
+            /*$entity = $em->getRepository('VidelGalleryBundle:Image')->find(11);*/
+
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Gallery entity.');
+        }
+
+        return $this->render('VidelGalleryBundle:VidelGallery:onegallery.html.twig', array(
+            'gallery' => $entity
+            ));
+    }
 }
