@@ -22,9 +22,9 @@ gallery_crud_edit:
 gallery_crud_update:
     pattern:  /{id}/update
     defaults: { _controller: "VidelGalleryBundle:Gallery:update" }
-    requirements: { _method: post|put }
+    requirements: { _method: post }
 
 gallery_crud_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "VidelGalleryBundle:Gallery:delete" }
-    requirements: { _method: post|delete }
+    requirements: { _method: post }

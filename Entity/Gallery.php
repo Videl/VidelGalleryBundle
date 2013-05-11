@@ -4,6 +4,7 @@ namespace Videl\VidelGalleryBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Gallery
@@ -37,15 +38,14 @@ class Gallery
      */
     private $description;
 
-
     /**
-     * @ORM\OneToMany(targetEntity="\Videl\VidelGalleryBundle\Entity\Image", mappedBy="images")
+     * @ORM\ManyToMany(targetEntity="Videl\VidelGalleryBundle\Entity\Image", inversedBy="galleries")
      */
     protected $images;
 
     public function __construct()
     {
-        $this->images = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     /**
@@ -105,32 +105,22 @@ class Gallery
     }
 
     /**
-     * Add images
+     * Set images
      *
      * @param \Videl\VidelGalleryBundle\Entity\Image $images
      * @return Gallery
      */
-    public function addImage(\Videl\VidelGalleryBundle\Entity\Image $images)
+    public function setImages(\Videl\VidelGalleryBundle\Entity\Image $images = null)
     {
-        $this->images[] = $images;
+        $this->images = $images;
     
         return $this;
     }
 
     /**
-     * Remove images
-     *
-     * @param \Videl\VidelGalleryBundle\Entity\Image $images
-     */
-    public function removeImage(\Videl\VidelGalleryBundle\Entity\Image $images)
-    {
-        $this->images->removeElement($images);
-    }
-
-    /**
      * Get images
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Videl\VidelGalleryBundle\Entity\Image 
      */
     public function getImages()
     {

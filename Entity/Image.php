@@ -45,6 +45,10 @@ class Image
 
     private $temp;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Videl\VidelGalleryBundle\Entity\Gallery", mappedBy="images")
+     */
+    protected $gallery;
 
     /**
      * Get id
@@ -114,7 +118,12 @@ class Image
     {
         return null === $this->path
             ? null
-            : $this->getUploadDir().'/'.$this->path;
+            : 'http://localhost/www/symfony/web/'.$this->getUploadDir().'/'.$this->path;
+    }
+
+    public function getFormPath()
+    {
+        return '<img src="'.$this->getWebPath().'" alt="'.$this->getName().'" />';
     }
 
     protected function getUploadRootDir()
@@ -206,5 +215,45 @@ class Image
         if ($file = $this->getAbsolutePath()) {
             unlink($file);
         }
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->gallery = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add gallery
+     *
+     * @param \Videl\VidelGalleryBundle\Entity\Gallery $gallery
+     * @return Image
+     */
+    public function addGallery(\Videl\VidelGalleryBundle\Entity\Gallery $gallery)
+    {
+        $this->gallery[] = $gallery;
+    
+        return $this;
+    }
+
+    /**
+     * Remove gallery
+     *
+     * @param \Videl\VidelGalleryBundle\Entity\Gallery $gallery
+     */
+    public function removeGallery(\Videl\VidelGalleryBundle\Entity\Gallery $gallery)
+    {
+        $this->gallery->removeElement($gallery);
+    }
+
+    /**
+     * Get gallery
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGallery()
+    {
+        return $this->gallery;
     }
 }
