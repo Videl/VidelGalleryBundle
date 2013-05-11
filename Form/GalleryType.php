@@ -13,7 +13,11 @@ class GalleryType extends AbstractType
         $builder
             ->add('title')
             ->add('description')
-            ->add('images_shortcut')
+            ->add('images', 'entity', array(
+                'class' => 'VidelGalleryBundle:Image',
+                'multiple' => 'true',
+                'expanded' => 'true',
+                'property' => 'name'))
         ;
     }
 

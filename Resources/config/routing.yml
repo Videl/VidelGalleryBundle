@@ -9,3 +9,7 @@ videl_gallery_image_search:
 VidelGalleryBundle_image_crud:
     resource: "@VidelGalleryBundle/Resources/config/routing/image.yml"
     prefix:	/image_crud
+
+VidelGalleryBundle_gallery_crud:
+    resource: "@VidelGalleryBundle/Resources/config/routing/gallery.yml"
+    prefix: /gallery_crud

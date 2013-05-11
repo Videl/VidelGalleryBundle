@@ -1,0 +1,30 @@
+gallery_crud:
+    pattern:  /
+    defaults: { _controller: "VidelGalleryBundle:Gallery:index" }
+
+gallery_crud_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "VidelGalleryBundle:Gallery:show" }
+
+gallery_crud_new:
+    pattern:  /new
+    defaults: { _controller: "VidelGalleryBundle:Gallery:new" }
+
+gallery_crud_create:
+    pattern:  /create
+    defaults: { _controller: "VidelGalleryBundle:Gallery:create" }
+    requirements: { _method: post }
+
+gallery_crud_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "VidelGalleryBundle:Gallery:edit" }
+
+gallery_crud_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "VidelGalleryBundle:Gallery:update" }
+    requirements: { _method: post|put }
+
+gallery_crud_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "VidelGalleryBundle:Gallery:delete" }
+    requirements: { _method: post|delete }

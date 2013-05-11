@@ -6,7 +6,7 @@
 	<div class="image-chooser">
 	{% for image in images %}
 		<h2>{{ image.name }}</h2>
-		<img src="http://localhost/www/symfony/web/{{ image.getWebPath }}" alt="{{ image.name }}" />
+		<img height=100 width=100 src="http://localhost/symfony/web/{{ image.getWebPath }}" alt="{{ image.name }}" />
 	{% endfor %}
 
 	</div>

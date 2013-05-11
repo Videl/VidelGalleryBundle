@@ -39,13 +39,13 @@ class Gallery
 
 
     /**
-     * @ORM\OneToMany(targetEntity="Image", mappedBy="images")
+     * @ORM\OneToMany(targetEntity="\Videl\VidelGalleryBundle\Entity\Image", mappedBy="images")
      */
     protected $images;
 
     public function __construct()
     {
-        $this->images = new ArrayCollection();
+        $this->images = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
