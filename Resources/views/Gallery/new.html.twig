@@ -1,7 +1,21 @@
 <h1>Gallery creation</h1>
 
 <form action="{{ path('gallery_crud_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
+    {# form_widget(form) #}
+    {{ form_row(form.title) }}
+    {{ form_row(form.description) }}
+    <ul>
+    {% for field in form.images %}
+    <li>
+        <label for="{{ field.vars.id }}"
+            class="{{ field.vars.required ? 'required' : '' }}">
+            <img src="{{field.vars.label }}" alt="image" />
+        </label>
+     {{ form_widget(field) }}
+    </li>
+    {% endfor %}
+    </ul>
+    {{ form_rest(form) }}
     <p>
         <button type="submit">Create</button>
     </p>

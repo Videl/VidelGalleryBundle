@@ -17,7 +17,12 @@
     </tbody>
 </table>
 
-<ul class="record_actions">
+<ul class="record_actions">    
+    <li>
+        <a href="{{ path('videl_gallery_gallery_search', {'var': entity.id}) }}">
+            See gallery
+        </a>
+    </li>
     <li>
         <a href="{{ path('gallery_crud') }}">
             Back to the list

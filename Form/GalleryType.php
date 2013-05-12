@@ -17,7 +17,7 @@ class GalleryType extends AbstractType
                 'class' => 'VidelGalleryBundle:Image',
                 'multiple' => 'true',
                 'expanded' => 'true',
-                'property' => 'name'))
+                'property' => 'WebPath'))
         ;
     }
 
