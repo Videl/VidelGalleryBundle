@@ -121,11 +121,6 @@ class Image
             : 'http://localhost/www/symfony/web/'.$this->getUploadDir().'/'.$this->path;
     }
 
-    public function getFormPath()
-    {
-        return '<img src="'.$this->getWebPath().'" alt="'.$this->getName().'" />';
-    }
-
     protected function getUploadRootDir()
     {
         // the absolute directory path where uploaded
