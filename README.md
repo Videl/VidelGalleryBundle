@@ -1,7 +1,7 @@
 VidelGalleryBundle
 ==================
 
-VidelGalleryBundle for Symfony
+VidelGalleryBundle for Symfony. This bundle aims to help you manage galleries of images. You can upload images, then you can choose to create galleries with a selection of your images.
 
 Requirements
 ------------
